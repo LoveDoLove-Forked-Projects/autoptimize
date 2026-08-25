@@ -40,8 +40,8 @@ function ao_ccss_render_adv() {
                             <?php esc_html_e( 'Viewport Size', 'autoptimize' ); ?>
                         </th>
                         <td>
-                            <label for="autoptimize_ccss_vw"><?php esc_html_e( 'Width', 'autoptimize' ); ?>:</label> <input type="number" id="autoptimize_ccss_vw" name="autoptimize_ccss_viewport[w]" min="800" max="4096" placeholder="1400" value="<?php echo $viewport['w']; ?>" />&nbsp;&nbsp;
-                            <label for="autoptimize_ccss_vh"><?php esc_html_e( 'Height', 'autoptimize' ); ?>:</label> <input type="number" id="autoptimize_ccss_vh" name="autoptimize_ccss_viewport[h]" min="600" max="2160" placeholder="1080" value="<?php echo $viewport['h']; ?>" />
+                            <label for="autoptimize_ccss_vw"><?php esc_html_e( 'Width', 'autoptimize' ); ?>:</label> <input type="number" id="autoptimize_ccss_vw" name="autoptimize_ccss_viewport[w]" min="800" max="4096" placeholder="1400" value="<?php echo esc_attr( $viewport['w'] ); ?>" />&nbsp;&nbsp;
+                            <label for="autoptimize_ccss_vh"><?php esc_html_e( 'Height', 'autoptimize' ); ?>:</label> <input type="number" id="autoptimize_ccss_vh" name="autoptimize_ccss_viewport[h]" min="600" max="2160" placeholder="1080" value="<?php echo esc_attr( $viewport['h'] ); ?>" />
                             <p class="notes">
                                 <?php _e( '<a href="https://criticalcss.com/account/api-keys?aff=1" target="_blank">criticalcss.com</a> default viewport size is 1400x1080 pixels (width x height). You can change this size by typing a desired width and height values above. Allowed value ranges are from 800 to 4096 for width and from 600 to 2160 for height.', 'autoptimize' ); ?>
                             </p>
