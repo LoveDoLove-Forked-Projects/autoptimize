@@ -316,7 +316,7 @@ class autoptimizeCriticalCSSSettings {
                                 // Render rules section for manual rules.
                                 ao_ccss_render_rules();
                             } else {
-                                echo "<input class='hidden' name='autoptimize_ccss_rules' value='" . json_encode( $ao_ccss_rules, JSON_FORCE_OBJECT ) . "'>";
+                                echo "<input class='hidden' name='autoptimize_ccss_rules' value='" . esc_attr( json_encode( $ao_ccss_rules, JSON_FORCE_OBJECT ) ) . "'>";
                             }
 
                             // But if key is other than valid, add hidden fields to persist settings when submitting form
@@ -327,7 +327,7 @@ class autoptimizeCriticalCSSSettings {
                             $viewport = $this->criticalcss->viewport();
 
                             // Add hidden fields.
-                            echo "<input class='hidden' name='autoptimize_ccss_queue' value='" . json_encode( $ao_ccss_queue, JSON_FORCE_OBJECT ) . "'>";
+                            echo "<input class='hidden' name='autoptimize_ccss_queue' value='" . esc_attr( json_encode( $ao_ccss_queue, JSON_FORCE_OBJECT ) ) . "'>";
                             echo '<input class="hidden" name="autoptimize_ccss_viewport[w]" value="' . esc_attr( $viewport['w'] ) . '">';
                             echo '<input class="hidden" name="autoptimize_ccss_viewport[h]" value="' . esc_attr( $viewport['h'] ) . '">';
                             echo '<input class="hidden" name="autoptimize_ccss_finclude" value="' . esc_attr( $ao_ccss_finclude ) . '">';

@@ -79,7 +79,7 @@ function ao_ccss_render_queue() {
                     </thead>
                     <tbody id="queue"></tbody>
                 </table>
-                <input class="hidden" type="text" id="ao-ccss-queue" name="autoptimize_ccss_queue" value='<?php echo( $ao_ccss_queue ); ?>'>
+                <input class="hidden" type="text" id="ao-ccss-queue" name="autoptimize_ccss_queue" value='<?php echo( esc_attr( $ao_ccss_queue ) ); ?>'>
                 <div class="submit jobs-btn">
                     <div id="queuerunner-container" class="alignleft hidden">
                         <span id="queuerunner" class="button-secondary"><?php esc_html_e( 'Manually process the job queue', 'autoptimize' ); ?></span>
