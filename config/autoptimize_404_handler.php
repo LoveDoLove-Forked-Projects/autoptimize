@@ -40,7 +40,7 @@ if ( true === $multisite ) {
 
 $fallback_path = $ao_cache_dir . $js_or_css . '/<!--ao-cachefile-prefix-->fallback.' . $js_or_css;
 
-if ( $original_request !== $fallback_target && file_exists( $fallback_path ) ) {
+if ( $original_request !== $fallback_target && file_exists( $fallback_path ) && ( strpos($fallback_target, '//' ) === 0 || strpos( $fallback_target, '/' ) !== 0 ) ) {
     // error_log( 'Autoptimize file ' . $original_request . ' not found, using fallback instead.' );
     header( 'HTTP/1.1 302 Found' );
     header( 'Location: ' . $fallback_target );
