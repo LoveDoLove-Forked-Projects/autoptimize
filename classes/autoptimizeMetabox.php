@@ -208,7 +208,7 @@ class autoptimizeMetabox
                     jQuery("#generateccss").prop('disabled', true);
                     var data = {
                         'action': 'ao_metabox_ccss_addjob',
-                        'path'  : '<?php echo $_slug; ?>',
+                        'path'  : '<?php echo esc_js( $_slug ); ?>',
                         'type'  : '<?php echo $_type; ?>',
                         'ao_ccss_addjob_nonce': '<?php echo wp_create_nonce( 'ao_ccss_addjob_nonce' ); ?>',
                     };
