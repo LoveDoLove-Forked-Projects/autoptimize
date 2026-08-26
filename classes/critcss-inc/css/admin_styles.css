@@ -143,6 +143,7 @@
 #rules-list .btn span {
   width: 67px;
   text-align: center;
+  padding: unset;
 }
 p.rules-btn {
   margin: 20px 0 0;
