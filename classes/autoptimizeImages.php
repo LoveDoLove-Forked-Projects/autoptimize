@@ -686,7 +686,7 @@ class autoptimizeImages
                 $imgopt_h  = $_get_size['height'];
 
                 // then start replacing images src.
-                $tag = autoptimizeAttibuteParser::modify_attributes( $tag, '/src$/i', function( $name, $url ) use ( $tag, $testing ) {
+                $tag = autoptimizeAttributeParser::modify_attributes( $tag, '/src$/i', function( $name, $url ) use ( $tag, $testing, $imgopt_w, $imgopt_h ) {
                     // 1. Skip if empty or a data-URI
                     if ( ! $url || strpos( $url, 'data:' ) === 0 ) {
                         return $url;
@@ -694,7 +694,7 @@ class autoptimizeImages
 
                     // 2. Run Autoptimize logic
                     if ( $this->can_optimize_image( $url, $tag, $testing ) && ! apply_filters( 'autoptimize_filter_imgopt_do_spai', false ) ) {
-                        return $this->build_imgopt_url( $url, $this->imgopt_w, $this->imgopt_h );
+                        return $this->build_imgopt_url( $url, $imgopt_w, $imgopt_h );
                     }
 
                     // 3. No changes needed
