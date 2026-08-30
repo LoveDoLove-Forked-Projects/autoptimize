@@ -47,7 +47,7 @@ class autoptimizeCriticalCSSSettingsAjax {
         } elseif ( current_user_can( 'manage_options' ) && $this->critcss_check_filename( $_POST['critcssfile'] ) ) {
             // Or check user permissios and filename.
             // Set file path and obtain its content.
-            $critcssfile = AO_CCSS_DIR . strip_tags( $_POST['critcssfile'] );
+            $critcssfile = AO_CCSS_DIR . $_POST['critcssfile'];
             if ( file_exists( $critcssfile ) ) {
                 $content = file_get_contents( $critcssfile );
                 $error   = false;
@@ -91,7 +91,7 @@ class autoptimizeCriticalCSSSettingsAjax {
             // If there is content and it's valid, write the file.
             if ( $critcsscontents && $this->criticalcss->check_contents( $critcsscontents ) ) {
                 // Set file path and status.
-                $critcssfile = AO_CCSS_DIR . strip_tags( $_POST['critcssfile'] );
+                $critcssfile = AO_CCSS_DIR . $_POST['critcssfile'];
                 $status      = file_put_contents( $critcssfile, $critcsscontents, LOCK_EX );
                 // Or set as error.
             } else {
@@ -146,7 +146,7 @@ class autoptimizeCriticalCSSSettingsAjax {
         } elseif ( current_user_can( 'manage_options' ) && $this->critcss_check_filename( $_POST['critcssfile'] ) ) {
             // Or check user permissios and filename
             // Set file path and delete it.
-            $critcssfile = AO_CCSS_DIR . strip_tags( $_POST['critcssfile'] );
+            $critcssfile = AO_CCSS_DIR . $_POST['critcssfile'];
             if ( file_exists( $critcssfile ) ) {
                 $status = unlink( $critcssfile );
                 $error  = false;
