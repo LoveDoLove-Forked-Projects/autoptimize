@@ -149,7 +149,7 @@ p.rules-btn {
   margin: 20px 0 0;
   padding: 0;
 }
-.submit.rules-btn {
+.submit.rules-btn, .submit.jobs-btn {
   margin-bottom: 20px !important;
 }
 .queue {
