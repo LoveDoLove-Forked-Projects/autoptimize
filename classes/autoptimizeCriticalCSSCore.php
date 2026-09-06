@@ -597,7 +597,7 @@ class autoptimizeCriticalCSSCore {
         // Perform basic exploit avoidance and CSS validation.
         if ( ! empty( $ccss ) ) {
             // Try to avoid code injection.
-            $blocklist = array( '#!/', 'function(', '<script', '<?php', '</style', ' onload=', ' onerror=', ' onmouse', ' onscroll=', ' onclick=' );
+            $blocklist = array( '#!/', 'function(', '<script', '<?php', '<?=', '</style', 'onload=', 'onerror=', ' onmouse', 'onscroll=', 'onclick=' );
             foreach ( $blocklist as $blocklisted ) {
                 if ( stripos( $ccss, $blocklisted ) !== false ) {
                     $this->ao_ccss_log( 'Critical CSS received contained blocklisted content.', 2 );
