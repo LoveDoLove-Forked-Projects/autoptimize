@@ -701,6 +701,9 @@ class autoptimizeImages
                     return $url;
                 });
 
+                $_url = autoptimizeAttributeParser::get( $tag, '/src$/i' );
+                $url  = $_url['src'];
+                
                 // check if the image needs to be prelaoded.
                 if ( ! empty( $metabox_preloads ) && is_array( $metabox_preloads ) && str_replace( $metabox_preloads, '', $tag ) !== $tag ) {
                     $to_preload .= $this->create_img_preload_tag( $tag );
