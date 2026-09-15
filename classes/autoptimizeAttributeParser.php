@@ -74,7 +74,11 @@ class autoptimizeAttributeParser
     private static function modify_legacy( $tag, $swaps, $replacements ): string
     {
         $attr_string = preg_replace( '/^<[a-z0-9]+\s+|(\s?\/?>)$/i', '', $tag );
-        $attrs = wp_kses_hair( $attr_string, wp_allowed_protocols() );
+        
+        $protocols = wp_allowed_protocols();
+        $protocols[] = 'data'; // add data to ensure we don't break other lazyload solutions that might roam around.
+
+        $attrs = wp_kses_hair( $attr_string, $protocols );
 
         // 1. Handle Deletions first to clear the deck
         foreach ( $replacements as $attr_name => $new_value ) {
@@ -167,7 +171,7 @@ class autoptimizeAttributeParser
         $protocols = wp_allowed_protocols();
         $protocols[] = 'data'; // add data to ensure we don't break other lazyload solutions that might roam around.
 
-        $attrs = wp_kses_hair( $attr_string, wp_allowed_protocols() );
+        $attrs = wp_kses_hair( $attr_string, $protocols );
 
         // Single attribute request
         if ( is_string( $query ) && strpos( $query, '/' ) !== 0 ) {
