@@ -595,6 +595,7 @@ class autoptimizeCriticalCSSCore {
 
     public function ao_ccss_check_contents( $ccss ) {
         // Perform basic exploit avoidance and CSS validation.
+        // todo; use autoptimizeStyles::check_css which is way stricter? or could that break things??
         if ( ! empty( $ccss ) ) {
             // Try to avoid code injection.
             $blocklist = array( '#!/', 'function(', '<script', '<?php', '<?=', '</style', 'onload=', 'onerror=', ' onmouse', 'onscroll=', 'onclick=' );
@@ -668,7 +669,14 @@ class autoptimizeCriticalCSSCore {
 
         // Validate: path must exist, must be a .css file, and must remain inside AO_CCSS_DIR
         if ( $requested_path && str_starts_with( $requested_path, AO_CCSS_DIR ) && pathinfo( $requested_path, PATHINFO_EXTENSION ) === 'css' ) {
-            return file_get_contents( $requested_path );
+            $_ccss_contents = file_get_contents( $requested_path );
+
+            // Sanitize: if contents looks fishy, strip all tags.
+            if ( false === $this->criticalcss->check_contents( $_ccss_contents ) ) {
+                $_ccss_contents = autoptimizeStyles::sanitize_css( $_ccss_contents );
+            }
+
+            return $_ccss_contents;
         }
     }
 }
