@@ -322,6 +322,8 @@ Just [fork Autoptimize on Github](https://github.com/futtta/autoptimize) and cod
 == Changelog ==
 
 = 3.1.16 =
+* Overall hardening of Autoptimize, e.g. replacing some regular expressions with a more modern, safer approach.
+* CSS minification: fixes for problems with alpha channel of rgb()/hsl() colors (thanks to @hinnerk-a)
 * Critical CSS: improvements to job queueing and settings page tweaks
 * confrimed OK with WordPress 7.1
 
