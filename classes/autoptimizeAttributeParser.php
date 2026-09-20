@@ -93,7 +93,7 @@ class autoptimizeAttributeParser
      * Returns a single value (string|null) if a string name is provided,
      * or an associative array if a regex is provided.
      */
-    public static function get( $tag, $target, $query ): string|array|null
+    public static function get( $tag, $target, $query ) // : string|array|null TODO: uncomment when PHP7.4 is no longer supported
     {
         $pieces = wp_html_split( $tag );
 
